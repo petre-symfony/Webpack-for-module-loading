@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
 	entry: './public/js/RepLogApp.js',
 	output: {
