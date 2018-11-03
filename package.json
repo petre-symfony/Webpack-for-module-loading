@@ -1,0 +1,15 @@
+{
+  "name": "ES6Javascript",
+  "version": "1.0.0",
+  "description": "ES6",
+  "main": "index.js",
+  "repository": "git@github.com:petre-symfony/ES6-Javascript.git",
+  "author": "petrero <petrero@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.1.0"
+  }
+}
