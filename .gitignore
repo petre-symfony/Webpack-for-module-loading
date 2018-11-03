@@ -7,4 +7,4 @@
 ###< symfony/framework-bundle ###
 /.idea
 /node_modules
-public/dist
+public/build
