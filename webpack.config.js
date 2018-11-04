@@ -102,5 +102,6 @@ module.exports = {
 			//copies to [output]/static
 			{ from: './assets/static', to: 'static' }
 		])
-	]
+	],
+	devtool: 'inline-source-map'
 }
