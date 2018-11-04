@@ -22,6 +22,12 @@ module.exports = {
 						cacheDirectory: true
 					}
 				}
+			},
+			{
+				test: /\.css$/,
+				use: [
+					'css-loader'
+				]
 			}
 		]
 	},
