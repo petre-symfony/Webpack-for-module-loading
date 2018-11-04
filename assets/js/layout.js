@@ -1,8 +1,8 @@
 'use strict';
 
 const $ = require('jquery');
-require('bootstrap');
-require('bootstrap/dist/css/bootstrap.css');
+require('bootstrap-sass');
+require('bootstrap-sass/assets/stylesheets/_bootstrap.scss');
 require('@babel/polyfill');
 require('../css/main.scss');
 require('font-awesome/css/font-awesome.css');
