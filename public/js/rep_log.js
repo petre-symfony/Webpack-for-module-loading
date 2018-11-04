@@ -1,5 +1,5 @@
 const $ = require('jquery');
-const RepLogApp = require('./Components/RepLogApp');
+const RepLogApp = require('babel-loader!./Components/RepLogApp');
 
 $(document).ready(function () {
 
