@@ -2,6 +2,7 @@
 
 const $ = require('jquery');
 require('bootstrap');
+require('bootstrap/dist/css/bootstrap.css');
 require('@babel/polyfill');
 require('../css/main.css');
 
