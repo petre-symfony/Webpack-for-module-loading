@@ -3,9 +3,9 @@ const webpack = require('webpack');
 
 module.exports = {
 	entry: {
-		rep_log: './public/js/rep_log.js',
-		login: './public/js/login.js',
-		layout: './public/js/layout.js'
+		rep_log: './assets/js/rep_log.js',
+		login: './assets/js/login.js',
+		layout: './assets/js/layout.js'
 	},
 	output: {
 		path: path.resolve(__dirname, 'public', 'build'),
