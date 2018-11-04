@@ -1,6 +1,33 @@
 const path = require('path');
 const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const styleLoader = {
+	loader: 'style-loader',
+	options: {
+
+	}
+}
+
+const cssLoader = {
+	loader: 'css-loader',
+	options: {
+
+	}
+}
+
+const sassLoader = {
+	loader: 'sass-loader',
+	options: {
+		sourceMap: true
+	}
+}
+
+const resolveUrlLoader = {
+	loader: 'resolve-url-loader',
+	options: {
+	}
+}
 
 module.exports = {
 	entry: {
@@ -28,17 +55,17 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-					'style-loader',
-					'css-loader'
+					styleLoader,
+					cssLoader
 				]
 			},
 			{
 				test: /\.scss$/,
 				use: [
-					'style-loader',
-					'css-loader',
-					'resolve-url-loader',
-					'sass-loader?sourceMap'
+					styleLoader,
+					cssLoader,
+					resolveUrlLoader,
+					sassLoader
 				]
 			},
 			{
