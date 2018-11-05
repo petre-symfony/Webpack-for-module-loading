@@ -3,7 +3,9 @@
 const Helper = require('./RepLogAppHelper');
 const $ = require('jquery');
 const swal = require('sweetalert2');
+require('sweetalert2/dist/sweetalert2.css');
 
+require('../../../vendor/friendsofsymfony/jsrouting-bundle/Resources/js/router');
 
 let HelperInstances = new WeakMap();
 
