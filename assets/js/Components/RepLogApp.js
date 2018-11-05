@@ -5,6 +5,7 @@ const $ = require('jquery');
 const swal = require('sweetalert2');
 require('sweetalert2/dist/sweetalert2.css');
 require('./Routing');
+const _ = require('lodash');
 
 
 
@@ -15,6 +16,7 @@ class RepLogApp {
 		this.$wrapper = $wrapper;
 		this.repLogs = [];
 		HelperInstances.set(this, new Helper(this.repLogs));
+		this._clearForm();
 
 		for (let repLog of initialRepLogs) {
 			this._addRow(repLog);
@@ -192,6 +194,8 @@ class RepLogApp {
 		this._removeFormErrors();
 		const $form = this.$wrapper.find(RepLogApp._selectors.newRepForm);
 		$form[0].reset();
+
+		$form.find('[name="reps"]').val(_.random(1, 10));
 	}
 
 	handleRowClick(){
