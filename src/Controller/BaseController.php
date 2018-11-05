@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Api\RepLogApiModel;
 use App\Entity\RepLog;
 use App\Repository\RepLogRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -15,24 +16,30 @@ class BaseController extends AbstractController{
 	/**
 	 * @var Serializer
 	 */
-	private $serializer;
+	protected $serializer;
 	/**
 	 * @var TranslatorInterface
 	 */
-	private $translator;
+	protected $translator;
 	/**
 	 * @var RepLogRepository
 	 */
-	private $repLogRepository;
+	protected $repLogRepository;
+	/**
+	 * @var UserRepository
+	 */
+	protected $userRepository;
 
 	public function __construct(
 		SerializerInterface $serializer,
 		TranslatorInterface $translator,
-		RepLogRepository $repLogRepository
+		RepLogRepository $repLogRepository,
+		UserRepository $userRepository
 	){
 		$this->serializer = $serializer;
 		$this->translator = $translator;
 		$this->repLogRepository = $repLogRepository;
+		$this->userRepository = $userRepository;
 	}
 
 	protected function createApiResponse($data, $statusCode = 200){

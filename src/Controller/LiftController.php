@@ -10,29 +10,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\SerializerInterface;
 
-class LiftController extends AbstractController{
-	/**
-	 * @var RepLogRepository
-	 */
-	private $repLogRepository;
-	/**
-	 * @var UserRepository
-	 */
-	private $userRepository;
-
-	public function __construct(
-		RepLogRepository $repLogRepository,
-		UserRepository $userRepository
-	){
-		$this->repLogRepository = $repLogRepository;
-		$this->userRepository = $userRepository;
-	}
-
+class LiftController extends BaseController{
 	/**
    * @Route("/lift", name="lift")
    */
-  public function index(Request $request, RepLogRepository $repLogRepository){
+  public function index(Request $request){
 	  $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
 	  $form = $this->createForm(RepLogType::class);
 	  $form->handleRequest($request);
@@ -47,10 +31,14 @@ class LiftController extends AbstractController{
 		  return $this->redirectToRoute('lift');
 	  }
 
+		$repLogsModel = $this->findAllUsersRepLogModels();
+	  $repLogsJson = $this->serializer->
+	    serialize($repLogsModel, 'json');
 
 	  return $this->render('lift/index.html.twig', array(
 		  'form' => $form->createView(),
-		  'leaderboard' => $this->getLeaders()
+		  'leaderboard' => $this->getLeaders(),
+		  'repLogsJson' => $repLogsJson
 	  ));
   }
 
