@@ -1,10 +1,10 @@
 'use strict';
 
-const Helper = require('./RepLogAppHelper');
-const $ = require('jquery');
-const swal = require('sweetalert2');
-require('sweetalert2/dist/sweetalert2.css');
-require('./Routing');
+import Helper from './RepLogAppHelper';
+import $ from 'jquery';
+import swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.css';
+import Routing from './Routing';
 import { random } from 'lodash/number';
 
 
