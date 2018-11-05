@@ -5,7 +5,7 @@ const $ = require('jquery');
 const swal = require('sweetalert2');
 require('sweetalert2/dist/sweetalert2.css');
 require('./Routing');
-import { random } from 'lodash';
+import { random } from 'lodash/number';
 
 
 
