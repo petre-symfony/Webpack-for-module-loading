@@ -43,9 +43,13 @@
         </div>
         <div class="col-md-5">
             <div class="leaderboard">
-                <h2 class="text-center">
-                    <img class="dumbbell" src="{{ asset('build/static/dumbbell.png') }}" />
-                    Leaderboard
+                <h2 class="text-center js-custom-popover"
+                  data-toggle="popover"
+                    title="About the Leaderboard"
+                    data-content="Want to be the leader? Lift Stuf!"
+                >
+                  <img class="dumbbell" src="{{ asset('build/static/dumbbell.png') }}" />
+                  Leaderboard
                 </h2>
 							{{ include('lift/_leaderboard.html.twig') }}
             </div>
@@ -58,4 +62,12 @@
 
 	<script src="{{ asset('build/rep_log.js') }}"></script>
 
+	<script> 
+		$(document).ready(function () {
+			$('.js-custom-popover').popover({
+				trigger: 'hover',
+				placement: 'left'
+			});
+		})
+	</script>
 {% endblock %}
