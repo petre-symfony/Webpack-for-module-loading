@@ -244,4 +244,4 @@ const rowTemplate = (repLog) =>
  </tr>`
 ;
 
-module.exports = RepLogApp;
+export default RepLogApp;
