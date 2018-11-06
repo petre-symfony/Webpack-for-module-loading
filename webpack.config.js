@@ -5,20 +5,20 @@ const ExtracTextPlugin = require('extract-text-webpack-plugin');
 
 const useDevServer = false;
 const publicPath = useDevServer ? 'http://localhost:8080/build/' : '/build/';
-
-console.log(process.env.NODE_ENV);
+const isProduction = process.env.NODE_ENV === 'prod';
+const useSourceMaps = !isProduction;
 
 const styleLoader = {
 	loader: 'style-loader',
 	options: {
-		sourceMap: true
+		sourceMap: useSourceMaps
 	}
 }
 
 const cssLoader = {
 	loader: 'css-loader',
 	options: {
-		sourceMap: true
+		sourceMap: useSourceMaps
 	}
 }
 
@@ -32,7 +32,7 @@ const sassLoader = {
 const resolveUrlLoader = {
 	loader: 'resolve-url-loader',
 	options: {
-		sourceMap: true
+		sourceMap:useSourceMaps
 	}
 }
 
@@ -128,14 +128,14 @@ const webpackConfig = {
 		}),
 		new ExtracTextPlugin('[name].css')
 	],
-	devtool: 'inline-source-map',
+	devtool: useSourceMaps ? 'inline-source-map' : false,
 	devServer: {
 		contentBase: './public',
 		headers: { 'Access-Control-Allow-Origin': '*' },
 	}
 }
 
-if (process.env.NODE_ENV === 'prod'){
+if (isProduction){
 	webpackConfig.plugins.push(
 		new webpack.optimize.UglifyJsPlugin()
 	);
