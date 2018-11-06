@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtracTextPlugin = require('extract-text-webpack-plugin');
 
 const useDevServer = true;
 const publicPath = useDevServer ? 'http://localhost:8080/build/' : '/build/';
@@ -58,19 +59,25 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: [
-					styleLoader,
-					cssLoader
-				]
+				use: ExtracTextPlugin.extract({
+					use: [
+						cssLoader
+					],
+					//use this if css isn't extracted
+					fallback: styleLoader
+				})
 			},
 			{
 				test: /\.scss$/,
-				use: [
-					styleLoader,
-					cssLoader,
-					resolveUrlLoader,
-					sassLoader
-				]
+				use: ExtracTextPlugin.extract({
+					use: [
+						cssLoader,
+						resolveUrlLoader,
+						sassLoader
+					],
+					//use this if css isn't extracted
+					fallback: styleLoader
+				})
 			},
 			{
 				test: /\.(png|jpg|jpeg|gif|ico|svg)$/,
@@ -116,7 +123,8 @@ module.exports = {
 				'manifest'
 			],
 			minChunks: Infinity
-		})
+		}),
+		new ExtracTextPlugin('[name].css')
 	],
 	devtool: 'inline-source-map',
 	devServer: {
