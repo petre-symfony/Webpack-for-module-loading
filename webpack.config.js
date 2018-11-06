@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtracTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackChunkHash = require('webpack-chunk-hash');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const useDevServer = false;
 const useVersioning = true;
@@ -140,10 +141,8 @@ const webpackConfig = {
 		}),
 		//allows [chunkhash]
 		new WebpackChunkHash(),
-
-		isProduction ? new webpack.HashedModuleIdsPlugin() : new webpack.NamedModulesPlugin()
-
-
+		isProduction ? new webpack.HashedModuleIdsPlugin() : new webpack.NamedModulesPlugin(),
+		new CleanWebpackPlugin('public/build/**/*.*')
 	],
 	devtool: useSourceMaps ? 'inline-source-map' : false,
 	devServer: {
