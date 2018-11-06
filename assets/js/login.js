@@ -2,7 +2,6 @@
 
 import $ from 'jquery';
 import '../css/login.css';
-import username_validation_error from './Components/username_validation_error';
 
 	$(document).ready(function() {
 	$('.js-recommended-login').on('click', '.js-show-login', function(e) {
@@ -17,8 +16,13 @@ import username_validation_error from './Components/username_validation_error';
 		$('.login-long-username-warning').remove();
 
 		if ($usernameInput.val().length >= 20) {
-			console.log(username_validation_error);
-			username_validation_error($(this));
+			import('./Components/username_validation_error')
+				.then(username_validation_error =>
+					{
+						console.log(username_validation_error);
+						username_validation_error($usernameInput);
+					}
+				);
 		}
 	});
 });
