@@ -139,7 +139,11 @@ const webpackConfig = {
 			basePath: 'build/'
 		}),
 		//allows [chunkhash]
-		new WebpackChunkHash()
+		new WebpackChunkHash(),
+
+		isProduction ? new webpack.HashedModuleIdsPlugin() : new webpack.NamedModulesPlugin()
+
+
 	],
 	devtool: useSourceMaps ? 'inline-source-map' : false,
 	devServer: {
