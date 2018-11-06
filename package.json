@@ -7,9 +7,9 @@
   "author": "petrero <petrero@gmail.com>",
   "license": "MIT",
   "scripts": {
-	  "dev": "NODE_ENV=dev webpack",
-	  "watch": "NODE_ENV=dev webpack --watch",
-	  "prod": "NODE_ENV=prod webpack"
+    "dev": "NODE_ENV=dev webpack",
+    "watch": "NODE_ENV=dev webpack --watch",
+    "prod": "NODE_ENV=prod webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -30,7 +30,8 @@
     "style-loader": "^0.23.1",
     "sweetalert2": "6.6",
     "webpack": "3",
-    "webpack-dev-server": "2"
+    "webpack-dev-server": "2",
+    "webpack-manifest-plugin": "^2.0.4"
   },
   "dependencies": {}
 }
