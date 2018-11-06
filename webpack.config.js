@@ -134,7 +134,8 @@ const webpackConfig = {
 		),
 		new ManifestPlugin({
 			// always dump manifest
-			writeToFileEmit: true
+			writeToFileEmit: true,
+			basePath: 'build/'
 		})
 	],
 	devtool: useSourceMaps ? 'inline-source-map' : false,
