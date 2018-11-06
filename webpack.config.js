@@ -148,6 +148,11 @@ if (isProduction){
 			debug: false
 		})
 	);
+	webpackConfig.plugins.push(
+		new webpack.DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify('prod')
+		})
+	);
 }
 
 module.exports = webpackConfig;
