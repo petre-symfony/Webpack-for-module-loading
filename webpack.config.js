@@ -6,6 +6,8 @@ const ExtracTextPlugin = require('extract-text-webpack-plugin');
 const useDevServer = false;
 const publicPath = useDevServer ? 'http://localhost:8080/build/' : '/build/';
 
+console.log(process.env.NODE_ENV);
+
 const styleLoader = {
 	loader: 'style-loader',
 	options: {
