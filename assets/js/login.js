@@ -19,8 +19,7 @@ import '../css/login.css';
 			import('./Components/username_validation_error')
 				.then(username_validation_error =>
 					{
-						console.log(username_validation_error);
-						username_validation_error($usernameInput);
+						username_validation_error.default($usernameInput);
 					}
 				);
 		}
