@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtracTextPlugin = require('extract-text-webpack-plugin');
 
-const useDevServer = true;
+const useDevServer = false;
 const publicPath = useDevServer ? 'http://localhost:8080/build/' : '/build/';
 
 const styleLoader = {
