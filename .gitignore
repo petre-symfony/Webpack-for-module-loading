@@ -6,5 +6,5 @@
 /vendor/
 ###< symfony/framework-bundle ###
 /.idea
-/node_modules/
+/node_modules
 public/build/
