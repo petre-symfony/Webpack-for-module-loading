@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtracTextPlugin = require('extract-text-webpack-plugin');
 
 const useDevServer = false;
+const useVersioning = true;
 const publicPath = useDevServer ? 'http://localhost:8080/build/' : '/build/';
 const isProduction = process.env.NODE_ENV === 'prod';
 const useSourceMaps = !isProduction;
@@ -45,7 +46,7 @@ const webpackConfig = {
 	},
 	output: {
 		path: path.resolve(__dirname, 'public', 'build'),
-		filename: "[name].js",
+		filename: useVersioning ? "[name].[hash:6].js" : "[name].js",
 		publicPath: publicPath
 	},
 	module: {
@@ -127,7 +128,9 @@ const webpackConfig = {
 			],
 			minChunks: Infinity
 		}),
-		new ExtracTextPlugin('[name].css')
+		new ExtracTextPlugin(
+			useVersioning ? "[name].[contentHash:6].css" : "[name].css",
+		)
 	],
 	devtool: useSourceMaps ? 'inline-source-map' : false,
 	devServer: {
