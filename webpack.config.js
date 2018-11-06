@@ -139,6 +139,14 @@ if (process.env.NODE_ENV === 'prod'){
 	webpackConfig.plugins.push(
 		new webpack.optimize.UglifyJsPlugin()
 	);
+	webpackConfig.plugins.push(
+		// passes these options to all loaders
+		// but we should really pass these ourselves
+		new webpack.LoaderOptionsPlugin({
+			minimize: true,
+			debug: false
+		})
+	);
 }
 
 module.exports = webpackConfig;
