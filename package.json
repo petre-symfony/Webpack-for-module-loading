@@ -6,6 +6,11 @@
   "repository": "git@github.com:petre-symfony/ES6-Javascript.git",
   "author": "petrero <petrero@gmail.com>",
   "license": "MIT",
+  "scripts": {
+	  "dev": "NODE_ENV=dev webpack",
+	  "watch": "NODE_ENV=dev webpack --watch",
+	  "prod": "NODE_ENV=prod webpack"
+  },
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/polyfill": "^7.0.0",

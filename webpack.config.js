@@ -135,7 +135,7 @@ const webpackConfig = {
 	}
 }
 
-if (process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'prod'){
 	webpackConfig.plugins.push(
 		new webpack.optimize.UglifyJsPlugin()
 	);
