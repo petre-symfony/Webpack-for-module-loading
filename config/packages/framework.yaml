@@ -1,6 +1,7 @@
 framework:
     secret: '%env(APP_SECRET)%'
-    #assets:
+    assets:
+      json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'
       #base_url: 'http://localhost:8080'
     #default_locale: en
     #csrf_protection: true

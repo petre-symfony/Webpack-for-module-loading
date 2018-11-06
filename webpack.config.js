@@ -132,7 +132,10 @@ const webpackConfig = {
 		new ExtracTextPlugin(
 			useVersioning ? "[name].[contentHash:6].css" : "[name].css",
 		),
-		new ManifestPlugin()
+		new ManifestPlugin({
+			// always dump manifest
+			writeToFileEmit: true
+		})
 	],
 	devtool: useSourceMaps ? 'inline-source-map' : false,
 	devServer: {
