@@ -18,7 +18,8 @@ const styleLoader = {
 const cssLoader = {
 	loader: 'css-loader',
 	options: {
-		sourceMap: useSourceMaps
+		sourceMap: useSourceMaps,
+		minimize: isProduction
 	}
 }
 
