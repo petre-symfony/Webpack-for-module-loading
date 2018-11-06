@@ -2,7 +2,7 @@
 
 import $ from 'jquery';
 import 'bootstrap-sass';
-import '@babel/polyfill';
+import 'core-js/library/es6/promise';
 import '../css/main.scss';
 
 $(document).ready(function() {
